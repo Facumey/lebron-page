@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>LeBron James</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff8b3;
+      font-family: 'Lobster', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      padding-top: 40px;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #000;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    #mensaje {
+      font-size: 1.2em;
+      color: #333;
+      margin-top: 10px;
+      z-index: 1;
+    }
+
+    audio {
+      margin-top: 20px;
+      z-index: 1;
+    }
+
+    .image-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      z-index: 1;
+    }
+
+    .image-container img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .image-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .line {
+      position: absolute;
+      width: 6px;
+      background-color: purple;
+      opacity: 0.2;
+      animation: floatUp 10s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(100vh); }
+      to   { transform: translateY(-100vh); }
+    }
+  </style>
+</head>
+<body onclick="iniciarAudio()">
+
+  <h1>LeBron James</h1>
+
+  <audio id="audio">
+    <source src="lebron.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML.
+  </audio>
+
+  <div id="mensaje">Haz clic para reproducir el audio</div>
+
+  <div class="image-container">
+    <img src="0e091cd0-0281-4f96-8949-8ef482a225b7.jpg" alt="LeBron James 1">
+    <img src="images (1).jpeg" alt="LeBron James 2">
+  </div>
+
+  <script>
+    function iniciarAudio() {
+      const audio = document.getElementById("audio");
+      audio.play();
+      document.getElementById("mensaje").style.display = "none";
+    }
+
+    for (let i = 0; i < 20; i++) {
+      const line = document.createElement("div");
+      line.className = "line";
+      line.style.left = Math.random() * 100 + "vw";
+      line.style.height = (50 + Math.random() * 150) + "px";
+      line.style.animationDuration = (6 + Math.random() * 6) + "s";
+      document.body.appendChild(line);
+    }
+  </script>
+
+</body>
+</html>
